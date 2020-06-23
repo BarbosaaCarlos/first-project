@@ -1,0 +1,48 @@
+
+
+def chooses():
+    G2 = int()
+    G2 = 0
+    S = "abcdef"
+    N = int()
+    N = len(S)
+    # I = input("choose a letter: ")
+    I1 = int()
+    I1 = 0
+    J = int()
+
+    I = str()
+    I = input("choose a letter: ")
+    J = S.find(I)
+    RR = S[J]
+    print("letter selected is position number: ", J)
+    print("number of times executed this program: ", I1)
+
+    while G2 < J:
+        print("_", end=" ")
+        G2 += 1
+
+    if G2 == J:
+        print(S[J], end=" ")
+        G2 += 1
+
+    while G2 != N:
+            print("_", end=" ")
+            G2 += 1
+    if G2 == N:
+                print("")
+
+                while S != I:
+                    I1 = I1 + I1
+                    print(chooses)
+                    if I1 > 1:
+                     I = I + input("choose a letter: ")
+                     J = S.find(I)
+
+                    if S == I:
+                     exit()
+    print("number of times executed this program: ", I1)
+
+
+print(chooses())
+
