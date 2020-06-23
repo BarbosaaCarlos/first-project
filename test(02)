@@ -1,0 +1,81 @@
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((500,500))
+pygame.display.set_caption("Game")
+x = 20
+y = 20
+vel = 5
+
+hight = 64
+width = 64
+
+jump = False
+jumpC = 10
+
+left = False
+right = False
+walkC = 0
+
+def redrawGameWindow():
+    global walkC
+    screen.blit(bg,(0,0))
+
+    if walkC > 1 >= 27:
+        walkC = 0
+        walkC += 1
+    if left:
+        screen.blit(walkLeft[walkC//3])
+        walkC += 1
+    elif right:
+        screen.blit(walkLeft[walkC // 3])
+        walkC += 1
+    else:
+        screen.blit(char, (x,y))
+
+    pygame.display.update()
+
+run = True
+while run:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+         run = False
+
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_LEFT] and x > vel:
+        x -= vel
+        left= True
+        right = False
+    if keys[pygame.K_RIGHT] and x < 500 - width:
+       x += vel
+       right = True
+       left = False
+    else:
+        right = False
+        left = False
+        walkC = 0
+
+    if not (jump):
+
+        if keys[pygame.K_SPACE]:
+          jump = True
+          right = False
+          left = False
+    else:
+        if jumpC >= -10:
+            neg = 1
+            if jumpC < 0:
+                neg = -1
+
+            y -= (jump**4) * 0.5 * neg
+            jumpC -= 1
+
+        else:
+            jump = False
+            jumpC = 10
+
+    redrawGameWindow()
+pygame.quit()
