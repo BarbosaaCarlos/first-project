@@ -42,7 +42,6 @@ def main():
                 run = False
 
         keys = pygame.key.get_pressed()
-        print(f"K_RIGHT={pygame.K_RIGHT}, K_DOWN={pygame.K_DOWN}, K_UP={pygame.K_UP}")
 
         if keys[pygame.K_LEFT] and x > vel:
             x -= vel
